@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ {% extends 'main.html' %} 
+<html>
+  <head>
+    {% comment %} <link rel="stylesheet" href="style.css" /> {% endcomment %}
+  </head>
+  <body>
+    <header>
+     
+      {% block content %}
+      <h1>Welcome to Homepage This is Django practice with templates</h1>
+
+      <div>
+        {% for room in rooms %}
+        <div>
+        
+          {% comment %} <h3>{{room.id}} --<a href="/room/{{room.id}}"> {{room.name}}</a></h3> {% endcomment %}
+          <h3>{{room.id}} --<a href="{% url 'room' room.id %}"> {{room.name}}</a></h3>
+        </div>
+        {% endfor%}
+      </div>
+      {% endblock content %}
+    </header>
+  </body>
+</html>
